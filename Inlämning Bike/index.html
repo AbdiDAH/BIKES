@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <link rel="shortcut icon" href="assets/img/bike logo.png" type="image/x-icon">
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>DAHIR BIKEZ</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                     DAHIR BIKES
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">Mountain Bike</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#bmx" class="nav__link">BMX</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#faqs" class="nav__link">Race Bike</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">Others</a>
+                        </li>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#shopping" class="nav__link">Shopping</a>
+                    </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    
+                     <i class="ri-shopping-cart-fill"></i>
+
+                    <i class="ri-user-fill"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            
+            <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="assets/img/mountainbike.jpeg" alt="" class="mountainbike__img">
+                
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            Find your dream <br> mountainbike.
+                        </h1>
+                        <p class="home__description">
+                            Don't miss out on the chance to own the ultimate mountain bike. 
+                            Elevate your outdoor experiences, push your limits, and embrace the spirit of adventure. 
+                            Get ready to ride with confidence and style <br> choose our mountain bike today!
+
+                        </p>
+                        <a href="#bmx" class="button button--flex">
+                            Browse 
+                        </a>
+                        <a href="#shopping" class="button button--flex">
+                            Buy Now 
+                        </a>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            
+
+            <!--==================== BMX ====================-->
+            
+            <section class="bmx section container" id="bmx">
+                <div class="bmx grid">
+                    <img src="assets/img/bmx.jpeg" alt="" class="bmx__img">
+
+                    <div class="bmx__data">
+                        <h2 class="section__title bmx__title">
+                            Unleash tricks & style with our premium BMX bikes!
+                        </h2>
+
+                        <p class="bmx__description">
+                            We have over 2000 diffrent type of bikes, klick explore to find
+                            the right bike for you.
+                        </p>
+
+                        <div class="bmx__details">
+                            <p class="bmx__details-description">
+                                <i class="ri-checkbox-fill bmx__details-icon"></i>
+                                Great quality bike to match your needs.
+                            </p>
+                            <p class="bmx__details-description">
+                                <i class="ri-checkbox-fill bmx__details-icon"></i>
+                                A outdoor experience you enjoy.
+                            </p>
+                            <p class="bmx__details-description">
+                                <i class="ri-checkbox-fill bmx__details-icon"></i>
+                                Grantee with every purchase.
+                            </p>
+                            <p class="bmx__details-description">
+                                <i class="ri-checkbox-fill bmx__details-icon"></i>
+                                30 days return policy.
+                            </p>
+                        </div>
+
+                        <a href="#bmx" class="button button--flex">
+                            Explore 
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!--==================== SHOPPING ====================-->
+            <section class="Shopping" id="shopping">
+                <div class="shopping__container container grid">
+                    <div class="home__data">
+                        <h1 class="home__title">Shopping Cart</h1>
+            
+                    <!-- Items -->
+                    <div class="product">
+                        <h2>Licorne Bike Strong 2D</h2>
+                        <img src="assets/img/produkt1.jpg" alt="" class="product1__img">
+                        <p>Price: $130.00</p>
+                        <button onclick="addToCart('Licorne Bike Strong 2D', 130.00)">Add</button>
+                    </div>
+            
+                    <div class="product">
+                        <h2>Pk ripper super 2021</h2>
+                        <img src="assets/img/bmx2.jpeg" alt="" class="product2__img">
+                        <p>Price: $150.00</p>
+                        <button onclick="addToCart('Pk ripper super 2021', 150.00)">Add</button>
+                    </div>
+                </div>
+
+                 <!-- Items Inside Cart -->
+                 <div class="cart">
+                    <h2>Items</h2>
+                    <ul id="cart-items">
+                    </ul>
+                    <p>Total: $<span id="cart-total">0.00</span></p>
+                </div>
+            </div>
+
+            
+                <script>
+                    let cart = [];
+                    let total = 0.00;
+            
+                    function addToCart(product, price) {
+                        cart.push({ product, price });
+                        total += price;
+                        updateCartDisplay();
+                    }
+            
+                    function removeFromCart(index) {
+                        total -= cart[index].price;
+                        cart.splice(index, 1);
+                        updateCartDisplay();
+                    }
+            
+                    function updateCartDisplay() {
+                        const cartItems = document.getElementById('cart-items');
+                        const cartTotal = document.getElementById('cart-total');
+            
+                        cartItems.innerHTML = '';
+                        cart.forEach((item, index) => {
+                            const li = document.createElement('li');
+                            li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
+                            const removeButton = document.createElement('button');
+                            removeButton.textContent = 'X';
+                            removeButton.onclick = () => removeFromCart(index);
+                            li.appendChild(removeButton);
+                            cartItems.appendChild(li);
+                        });
+            
+                        cartTotal.textContent = total.toFixed(2);
+                    }
+                </script>
+            </section>
+            
+</body>
+</html>
+
+
+            
+        
+        <!--=============== SCROLL FUNCTIONS ===============-->
+        
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        
+        <script src="assets/js/scrollreveal.min.js"></script>
+        
+        
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
